@@ -1,18 +1,18 @@
-from openpyxl import Workbook
-import datetime
-import os
+a = 10
+b = 15
 
 
-work = Workbook()
+def nod(arg=15, barg=20):
+    # help
+    if arg < barg:
+        arg, barg = barg, arg
+    print(f"{arg}, {barg} - значения a and b")
 
-sheet = work.active
+    while barg != 0:
+        print(f"{barg} - значение Б")
+        arg, barg = barg, arg % barg
 
-sheet["A1"] = "VoronBrothers"
-sheet["A2"] = "Название операционной системы: " + os.name
-sheet["a3"] = os.getlogin()
+    return arg
 
-#Дата изменения файла + сохранение в файл
-sheet["A20"] = datetime.datetime.now()
-work.save("vbexcel.xlsx")
 
-print(os.listdir("."))
+print(nod(25, 45))
